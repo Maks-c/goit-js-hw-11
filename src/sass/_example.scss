@@ -1,0 +1,32 @@
+.gallery{
+  display: grid;
+  max-width: 1200px;
+  grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+  grid-gap: 10px;
+  padding: 0;
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+.gallery__image{
+  width: 100%;
+}
+
+
+.search-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.input{
+  padding: 15px;
+
+}
+
+.submit-btn{
+  padding: 15px;
+}
+
+
