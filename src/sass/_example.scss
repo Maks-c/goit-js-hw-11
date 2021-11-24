@@ -17,21 +17,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  //margin-top: 20px;
+  background-color: aqua;
 }
 
 .input{
   padding: 15px;
-  border: solid 3px cornflowerblue;
+  border: solid 3px white;
   border-radius: 10px;
+
 
 }
 
 .submit-btn{
   padding: 15px;
-  border: solid 3px cornflowerblue;
+  border: solid 3px white;
   border-radius: 10px;
   background-color: white;
+  margin-left: 3px;
+
+
 }
 
 
