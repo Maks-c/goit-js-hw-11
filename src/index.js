@@ -51,32 +51,33 @@ function fetchPictures(searchName, pageCount) {
 
     galleryRef.insertAdjacentHTML("beforeend", result)
 
-    // if (galleryRef.children.length){
-    //   loadBtn.style.display="block";
-    // }
 
     const accessability =  Math.ceil(totalHits / PER_PAGE)
 
     if(pageCount === accessability) {
-
       return Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
     }
-    const { height: cardHeight } = document.querySelector('.gallery').firstElementChild.getBoundingClientRect();
 
+    if(pageCount > 1){
+      const { height: cardHeight } = document.querySelector('.gallery').firstElementChild.getBoundingClientRect();
+      window.scrollBy({
+        top: cardHeight * 1,
+        behavior: 'smooth',
+      });
+    }
+
+    const { height: cardHeight } = document.querySelector('.gallery').firstElementChild.getBoundingClientRect();
     window.scrollBy({
-      top: cardHeight * 2,
+      top: cardHeight * 0,
       behavior: 'smooth',
     });
+
     new SimpleLightbox('.gallery a').refresh()
-
+    //------------------observer
     let lastElement = galleryRef.lastElementChild;
-
-
     const options = {
-      // rootMargin: '100px 0 100px 0',
       threshold: 1,
     };
-
     function loadMore (entries) {
       entries.forEach(entry => {
         if (entry.isIntersecting){
@@ -86,9 +87,9 @@ function fetchPictures(searchName, pageCount) {
         }
       });
     }
-
     let observer = new IntersectionObserver(loadMore, options)
     observer.observe(lastElement);
+  //----------------------------------
   }).catch(function (error) {
       console.log(error);
     });
